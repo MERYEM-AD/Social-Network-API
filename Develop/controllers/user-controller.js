@@ -12,7 +12,23 @@ const userController = {
         res.status(400).json(err);
       });
   },
-  
+  //get one user by ID 
+  getUserById({ params }, res) {
+    User.findOne({ _id: params.id })
+      .select("-__v")
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          res.status(404).json({ message: " Sorry , Unfound User !!" });
+          return;
+        }
+        res.json(dbUserData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+ 
+    },
   // create user
     createUser({ body }, res) {
       User.create(body)
