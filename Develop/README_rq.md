@@ -184,7 +184,7 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 ```json
 // example data
 {
-  "_id": "61fb1e5e0e64a3245320f517",
+  // "_id": "61fb1e5e0e64a3245320f517",
   "thoughtText": "Here's a cool thought...",
   "username": "lernantino",
   "userId": "5edff358a0fcb779aa7b118b"

@@ -15,6 +15,21 @@ const thoughtController = {
         res.status(400).json(err);
       });
   },
+    // get one Thought 
+    getThoughtById({ params }, res) {
+      Thought.findOne({ _id: params.id })
+        .then((dbThoughtData) => {
+          if (!dbThoughtData) {
+            res.status(404).json({ message: " Sorry ,No thought is found !!" });
+            return;
+          }
+          res.json(dbThoughtData);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(400).json(err);
+        });
+    },
 //Create new thought 
   createThought({ body }, res) {
     console.log(body);
@@ -28,7 +43,7 @@ const thoughtController = {
       })
       .then((dbUserData) => {
         if (!dbUserData) {
-          res.status(404).json({ message: "Sorry , No Thought found !!" });
+          res.status(404).json({ message: "Sorry , No Thought is found !!" });
           return;
         }
         res.json(dbUserData);
