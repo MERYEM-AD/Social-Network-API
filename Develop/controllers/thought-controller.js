@@ -74,6 +74,34 @@ const thoughtController = {
       })
       .catch((err) => res.status(400).json(err));
   },
+
+    // add a reaction
+    addReaction({ params, body }, res) {
+      Thought.findOneAndUpdate(
+        { _id: params.thoughtId },
+        { $addToSet: { reactions: body } },
+        { new: true }
+      )
+        .then((dbThoughtData) => {
+          if (!dbThoughtData) {
+            res.status(404).json({ message: "Sorry , No reaction has created !!" });
+            return;
+          }
+          res.json(dbThoughtData);
+        })
+        .catch((err) => res.json(err));
+    },
+  
+    //delete a reaction
+    deleteReaction({ params }, res) {
+      Thought.findOneAndUpdate(
+        { _id: params.thoughtId },
+        { $pull: { reactions: { reactionId: params.reactionId } } },
+        { new: true }
+      )
+        .then((dbThoughtData) => res.json(dbThoughtData))
+        .catch((err) => res.json(err));
+    },
  
 };
 
