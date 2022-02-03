@@ -62,7 +62,7 @@ const thoughtSchema = new Schema(
 
 
 
-// getter function  return the total count of reactions and replies 
+// getter function  return the total count of reactions 
 thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
