@@ -47,7 +47,7 @@ Though routes:
 
   * The URL of the GitHub repository : https://github.com/MERYEM-AD/Social-Network-API
 
-  * You can view a walkthrough video of the app  :  [here]()
+  * You can view a walkthrough video of the app  :  [here](https://drive.google.com/file/d/1DPwjF2tQPCPx2xUSbjri4o6o6_uGEyGA/view)
   
   ## Questions
   iF you have any questions about the repo you can contact me by email : adiri.meryem.mw@gmail.com.
